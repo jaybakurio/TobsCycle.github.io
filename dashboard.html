@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TobsCycle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-title {
+            color: #0077b6;
+            font-size: 2em;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .chat-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: 600px;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .chat-title {
+            color: #0077b6;
+            font-size: 1.2em;
+        }
+
+        .refresh-button {
+            padding: 8px 16px;
+            background: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .refresh-button:hover {
+            background: #005b8c;
+        }
+
+        .chat-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-button {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button.active {
+            background: #0077b6;
+            color: white;
+        }
+
+        .chat-frame {
+            display: none;
+            width: 100%;
+            height: 500px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .chat-frame.active {
+            display: block;
+        }
+
+        #messenger-container {
+            height: 600px;
+            position: relative;
+        }
+
+        #fb-customer-chat {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/681610edc915a4190c8c152f/1iqb3486k';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="blog.html">Blog/News</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-icons">
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Admin Dashboard</h1>
+            <div class="user-info">
+                <span id="admin-name">Admin</span>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Messages</h3>
+                <div class="stat-value" id="total-messages">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Unread Messages</h3>
+                <div class="stat-value" id="unread-messages">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Chats</h3>
+                <div class="stat-value" id="active-chats">0</div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2 class="chat-title">Chat Integration</h2>
+                <button class="refresh-button" onclick="refreshChats()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+            <div class="chat-tabs">
+                <button class="tab-button active" onclick="switchTab('tawk')">Tawk.to Chat</button>
+                <button class="tab-button" onclick="switchTab('messenger')">Facebook Messenger</button>
+            </div>
+            <div id="tawk-container" class="chat-frame active"></div>
+            <div id="messenger-container" class="chat-frame">
+                <div id="fb-root"></div>
+                <div id="fb-customer-chat" class="fb-customerchat" 
+                    page_id="61573754234238"
+                    theme_color="#0077b6"
+                    logged_in_greeting="Hi! How can we help you?"
+                    logged_out_greeting="Hi! How can we help you?"
+                    minimized="false"
+                    should_show_dialog="true">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facebook Messenger SDK -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '61573754234238',
+                xfbml: true,
+                version: 'v18.0',
+                cookie: true
+            });
+            
+            // Log initialization status
+            console.log('Facebook SDK initialized');
+            
+            // Check if the chat plugin is loaded
+            FB.Event.subscribe('xfbml.render', function() {
+                console.log('Facebook chat plugin rendered');
+                // Force the chat to be visible
+                FB.CustomerChat.showDialog();
+            });
+
+            // Subscribe to chat events
+            FB.Event.subscribe('customerchat.load', function() {
+                console.log('Customer chat loaded');
+            });
+
+            FB.Event.subscribe('customerchat.dialogShow', function() {
+                console.log('Customer chat dialog shown');
+            });
+
+            FB.Event.subscribe('customerchat.dialogHide', function() {
+                console.log('Customer chat dialog hidden');
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Tawk.to Script
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/681610edc915a4190c8c152f/1iqb3486k';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+
+        // Tawk.to API functions
+        Tawk_API.onLoad = function(){
+            console.log('Tawk.to loaded');
+            updateDashboardStats();
+            
+            if (localStorage.getItem('isAdmin') === 'true') {
+                Tawk_API.setVisitorName('Admin');
+            }
+        };
+
+        Tawk_API.onChatMaximized = function(){
+            console.log('Tawk.to chat maximized');
+            updateDashboardStats();
+        };
+
+        Tawk_API.onChatMinimized = function(){
+            console.log('Tawk.to chat minimized');
+            updateDashboardStats();
+        };
+
+        Tawk_API.onChatHidden = function(){
+            console.log('Tawk.to chat hidden');
+            updateDashboardStats();
+        };
+
+        Tawk_API.onChatStarted = function(){
+            console.log('Tawk.to chat started');
+            updateDashboardStats();
+        };
+
+        Tawk_API.onChatEnded = function(){
+            console.log('Tawk.to chat ended');
+            updateDashboardStats();
+        };
+
+        Tawk_API.onMessageReceived = function(message){
+            console.log('Tawk.to message received:', message);
+            updateDashboardStats();
+        };
+
+        Tawk_API.onPrechatSubmit = function(data){
+            console.log('Tawk.to prechat submitted:', data);
+            updateDashboardStats();
+        };
+
+        Tawk_API.onError = function(error){
+            console.error('Tawk.to error:', error);
+            // Attempt to reconnect
+            setTimeout(function() {
+                if (typeof Tawk_API !== 'undefined') {
+                    Tawk_API.reload();
+                }
+            }, 5000);
+        };
+
+        // Add tab switching functionality
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.chat-frame');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            document.getElementById(tabName + '-container').classList.add('active');
+            event.target.classList.add('active');
+
+            // Re-render Facebook chat when switching to messenger tab
+            if (tabName === 'messenger' && typeof FB !== 'undefined') {
+                FB.XFBML.parse();
+                // Force show the chat dialog
+                setTimeout(function() {
+                    FB.CustomerChat.showDialog();
+                }, 1000);
+            }
+
+            // Reinitialize Tawk.to when switching to its tab
+            if (tabName === 'tawk' && typeof Tawk_API !== 'undefined') {
+                Tawk_API.reload();
+            }
+        }
+
+        // Update the stats function to include Facebook messages
+        function updateDashboardStats() {
+            console.log('Updating dashboard stats');
+            
+            if (typeof Tawk_API !== 'undefined') {
+                Tawk_API.getVisitorName(function(visitorName){
+                    document.getElementById('admin-name').textContent = visitorName || 'Admin';
+                });
+
+                Tawk_API.getUnreadCount(function(count){
+                    document.getElementById('unread-messages').textContent = count || '0';
+                });
+
+                Tawk_API.getTotalMessages(function(count){
+                    document.getElementById('total-messages').textContent = count || '0';
+                });
+
+                Tawk_API.getActiveChats(function(count){
+                    document.getElementById('active-chats').textContent = count || '0';
+                });
+            }
+        }
+
+        function refreshChats() {
+            console.log('Refreshing chats');
+            
+            // Refresh Tawk.to
+            if (typeof Tawk_API !== 'undefined') {
+                Tawk_API.reload();
+                console.log('Tawk.to chat refreshed');
+            }
+            
+            // Refresh Facebook Messenger
+            if (typeof FB !== 'undefined') {
+                FB.XFBML.parse();
+                // Force show the chat dialog
+                FB.CustomerChat.showDialog();
+                console.log('Facebook chat refreshed');
+            }
+            
+            updateDashboardStats();
+        }
+
+        // Check if user is logged in and is admin
+        if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("isAdmin") !== "true") {
+            alert("You need to be logged in as an admin to access the dashboard!");
+            window.location.href = "admin-login.html";
+        }
+
+        // Logout function
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("isAdmin");
+            localStorage.removeItem("adminName");
+            alert("You have been logged out!");
+            window.location.href = "admin-login.html";
+        });
+
+        // Initialize chat widgets
+        function initializeChats() {
+            if (typeof Tawk_API !== 'undefined') {
+                Tawk_API.maximize();
+                Tawk_API.showWidget();
+                updateDashboardStats();
+            } else {
+                console.log('Tawk.to not loaded, retrying in 1 second...');
+                setTimeout(initializeChats, 1000);
+            }
+
+            // Initialize Facebook chat
+            if (typeof FB !== 'undefined') {
+                FB.XFBML.parse();
+                // Force show the chat dialog
+                setTimeout(function() {
+                    FB.CustomerChat.showDialog();
+                }, 1000);
+            }
+        }
+
+        // Start initialization when page loads
+        window.onload = function() {
+            initializeChats();
+        };
+    </script>
+</body>
+</html> 
+ 

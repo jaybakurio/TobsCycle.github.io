@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle - Blog/News</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="a.png" alt="Logo" class="logo-image">
+    </div>
+    <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog/News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+    
+    <div class="header-icons">
+        <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="logout-button" class="logout-button">Log Out</button>
+    </div>
+  </header>
+
+  <main id="blog">
+    <section class="hero">
+      <h1>Latest News & Updates</h1>
+      <p>Stay updated with the latest trends, events, and news from TobsCycle!</p>
+    </section>
+
+    <!-- Blog/News Section -->
+    <section class="blog">
+      <h2>Recent Blog Posts</h2>
+      <div class="blog-container">
+        <div class="blog-post">
+          <h3>🚴‍♂️ 3 Tips for Maintaining Your Bicycle</h3>
+          <p>Learn how to keep your bike in top condition with these essential maintenance tips.</p>
+          <a href="https://www.youtube.com/watch?v=VKBNDzCLzK8" class="read-more">Watch Now</a>
+        </div>
+
+        <div class="blog-post">
+          <h3>🏆 Upcoming Cycling Events This Year</h3>
+          <p>Check out the biggest cycling events happening near you in 2025!</p>
+          <br>
+          <a href="https://www.cyclingnews.com/races/calendar/" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-post">
+          <h3>🔥 New Arrivals: Latest Bikes & Gear</h3>
+          <p>Discover the newest additions to our store, from high-performance bikes to premium accessories.</p>
+          <a href="products.html" class="read-more">Watch Now</a>
+        </div>
+
+         <!-- Blog Section -->
+       <div class="blog-post">
+          <h3>📢 Check Out Our Latest Blog!</h3>
+          <br>
+          <p>Read about our latest updates, tips, and news on cycling.</p>
+          <a href="https://tobscycle.blogspot.com/2025/03/tobscycle-march-11-2025-welcome-to.html" class="blog-link" target="_blank">
+              Visit Our Blog
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="newsletter">
+    <section class="hero">
+      <h1>Join Our Newsletter</h1>
+      <p>Sign up to receive the latest updates, cycling tips, and special offers!</p>
+    </section>
+
+    <!-- Newsletter Signup Form -->
+    <section class="newsletter-form">
+      <h2>Sign Up Now</h2>
+      <form id="signup-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <button type="submit" class="signup-button">Subscribe</button>
+      </form>
+    </section>
+  </main>
+  
+</body>
+</html>
+
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+      alert("You need to log in first!");
+      window.location.href = "login.html";
+  }
+
+  document.getElementById("logout-button").addEventListener("click", function() {
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out!");
+      window.location.href = "login.html";
+  });
+</script>
+
+<style>
+  .blog {
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+  }
+
+  .blog-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+  }
+
+  .blog-post {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      text-align: center;
+  }
+
+  .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  .read-more:hover {
+      text-decoration: underline;
+  }
+
+     /* Align header items in a row */
+     .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between icons and logout button */
+  }
+
+  /* Style for social media icons */
+  .social-icon {
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* Facebook icon color */
+  .social-icon:nth-child(1) {
+      color: #1877F2; /* Facebook Blue */
+  }
+  .social-icon:nth-child(1):hover {
+      color: #8b9dc3;
+  }
+
+  /* Instagram icon color */
+  .social-icon:nth-child(2) {
+      color: #E4405F; /* Instagram Pink */
+  }
+  .social-icon:nth-child(2):hover {
+      color: #F77737;
+  }
+
+  /* Blog section styling */
+.blog-container h2 {
+    color: #0077b6;
+}
+
+.blog-link {
+    display: inline-block;
+    background: #1877F2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.blog-link:hover {
+    background: #005f99;
+}
+</style>

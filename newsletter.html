@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle - Newsletter Signup</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+      <div class="logo-container">
+          <img src="a.png" alt="Logo" class="logo-image">
+      </div>
+      <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="blog.html">Blog/News</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+    
+    <div class="header-icons">
+        <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="logout-button" class="logout-button">Log Out</button>
+    </div>
+  </header>
+
+  <main id="newsletter">
+    <section class="hero">
+      <h1>Join Our Newsletter</h1>
+      <p>Sign up to receive the latest updates, cycling tips, and special offers!</p>
+    </section>
+
+    <!-- Newsletter Signup Form -->
+    <section class="newsletter-form">
+      <h2>Sign Up Now</h2>
+      <form id="signup-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <button type="submit" class="signup-button">Subscribe</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
+
+<script>
+  document.getElementById("signup-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Thank you for subscribing to our newsletter!");
+      window.location.href = "index.html";
+  });
+
+  document.getElementById("logout-button").addEventListener("click", function() {
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out!");
+      window.location.href = "login.html";
+  });
+</script>
+
+<style>
+  .newsletter {
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+  }
+
+  .newsletter-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+  }
+
+  .newsletter-button:hover {
+      background-color: #0056b3;
+  }
+
+  .newsletter-form {
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+  }
+
+  .newsletter-form form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .newsletter-form input {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  .signup-button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
+  .signup-button:hover {
+      background-color: #218838;
+  }
+
+    /* Align header items in a row */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between icons and logout button */
+  }
+
+  /* Style for social media icons */
+  .social-icon {
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* Facebook icon color */
+  .social-icon:nth-child(1) {
+      color: #1877F2; /* Facebook Blue */
+  }
+  .social-icon:nth-child(1):hover {
+      color: #8b9dc3;
+  }
+
+  /* Instagram icon color */
+  .social-icon:nth-child(2) {
+      color: #E4405F; /* Instagram Pink */
+  }
+  .social-icon:nth-child(2):hover {
+      color: #F77737;
+  }
+</style>

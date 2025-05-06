@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TobsCycle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="blog.html">Blog/News</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="tutorials.html">Tutorials</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+      </nav>
+        
+        <div class="header-icons">
+            <!-- Facebook Icon -->
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <!-- Logout Button -->
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+    </header>
+
+    <section class="page-content">
+        <h1>About Us</h1>
+        <p>
+            Welcome to TobsCycle, your trusted destination for all things cycling! At TobsCycle, we are passionate about bikes and committed to providing top-quality products and services to cycling enthusiasts of all levels. Whether you're a casual rider or a professional cyclist, we have a wide range of bikes, parts, and accessories to meet your needs. Our mission is to help you enjoy the ride by offering expert advice, reliable products, and excellent customer service. We believe that cycling is more than just a sport — it's a lifestyle. Join our growing community and discover the joy of biking with TobsCycle!
+        </p>
+    </section>
+
+    <!-- New Section for Goals, Mission, and Vision -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-item">
+                <h2>🚀 Our Goals</h2>
+                <p>
+                    At TobsCycle, our goal is to become the go-to destination for all cycling enthusiasts by providing high-quality products, expert guidance, and exceptional customer service. We aim to promote a healthy and active lifestyle through cycling while building a strong community of riders who share our passion. Our mission is to make cycling accessible to everyone by offering affordable options without compromising quality. We are committed to continuous improvement, ensuring that our products and services meet the evolving needs of our customers. At TobsCycle, we strive to inspire and support every rider on their journey, one ride at a time.
+                </p>
+            </div>
+
+            <div class="info-item">
+                <h2>🎯 Our Mission</h2>
+                <p>
+                    Our mission is to make cycling accessible and enjoyable for everyone by providing high-quality products, expert advice, and exceptional customer service. We aim to support every rider’s journey by offering affordable, durable, and innovative cycling solutions.
+                </p>
+            </div>
+
+            <div class="info-item">
+                <h2>🌍 Our Vision</h2>
+                <p>
+                    Our vision is to become the leading cycling shop, recognized for quality, expertise, and customer satisfaction. We aspire to build a strong cycling community where riders of all levels can share their passion and experiences.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    // Check if user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        alert("You need to log in first!");
+        window.location.href = "login.html";
+    }
+  
+    // Logout function
+    document.getElementById("logout-button").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn"); // Remove login status
+        alert("You have been logged out!");
+        window.location.href = "login.html";
+    });
+  </script>
+  
+<style>
+    /* About Page Styling */
+.page-content {
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Info Section Styling */
+.info-section {
+    background-color: #f9f9f9;
+    padding: 40px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+.info-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.info-item h2 {
+    font-size: 22px;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Hover Effect */
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-item {
+        width: 100%;
+    }
+}
+
+</style>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TobsCycle - Warranty Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .print-button:hover {
+            background-color: #005b8c;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .warranty-document {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .warranty-header {
+                border-bottom: 1px solid #0077b6;
+            }
+
+            .important-note {
+                border: 1px solid #0077b6;
+            }
+
+            .contact-info {
+                break-inside: avoid;
+            }
+
+            .footer {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warranty-document">
+        <div class="warranty-section">
+            <h2>1. Warranty Coverage</h2>
+            <p>TobsCycle provides the following warranty coverage for our products:</p>
+            <ul>
+                <li><strong>Frame:</strong> Lifetime warranty against manufacturing defects</li>
+                <li><strong>Components:</strong> 2 years warranty against manufacturing defects</li>
+                <li><strong>Electronics:</strong> 1 year warranty against manufacturing defects</li>
+            </ul>
+
+            <h3>Component-Specific Coverage</h3>
+            <ul>
+                <li><strong>Frame & Fork:</strong> Lifetime warranty against manufacturing defects</li>
+                <li><strong>Drivetrain Components:</strong> 2 years (chains, cassettes, derailleurs)</li>
+                <li><strong>Brake Systems:</strong> 2 years (calipers, levers, hydraulic systems)</li>
+                <li><strong>Wheels & Hubs:</strong> 2 years (excluding normal wear on bearings)</li>
+                <li><strong>Electronic Systems:</strong> 1 year (batteries, displays, sensors)</li>
+                <li><strong>Paint & Finish:</strong> 2 years against peeling and bubbling</li>
+            </ul>
+        </div>
+
+        <div class="warranty-section">
+            <h2>2. What's Covered</h2>
+            <ul>
+                <li>Manufacturing defects in materials and workmanship</li>
+                <li>Structural integrity issues</li>
+                <li>Component failures under normal use</li>
+                <li>Paint and finish defects</li>
+                <li>Weld failures</li>
+                <li>Frame alignment issues</li>
+                <li>Material defects in carbon fiber components</li>
+                <li>Bearing failures under normal use</li>
+            </ul>
+        </div>
+
+        <div class="warranty-section">
+            <h2>3. What's Not Covered</h2>
+            <ul>
+                <li>Normal wear and tear</li>
+                <li>Accidents, crashes, or impacts</li>
+                <li>Unauthorized modifications or alterations</li>
+                <li>Improper assembly or maintenance</li>
+                <li>Use in competitive events</li>
+                <li>Regular maintenance items (brake pads, chains, tires, etc.)</li>
+                <li>Damage from improper storage or transportation</li>
+                <li>Damage from exposure to extreme weather conditions</li>
+                <li>Damage from improper cleaning methods</li>
+                <li>Damage from use of non-TobsCycle parts or accessories</li>
+            </ul>
+        </div>
+
+        <div class="warranty-section">
+            <h2>4. Product Registration</h2>
+            <p>To activate your warranty, please register your product within 30 days of purchase:</p>
+            <ul>
+                <li>Visit www.tobscycle.com/register</li>
+                <li>Enter your product serial number</li>
+                <li>Upload your proof of purchase</li>
+                <li>Complete your contact information</li>
+            </ul>
+            <p class="important-text">Note: Unregistered products will have a reduced warranty period of 1 year.</p>
+        </div>
+
+        <div class="warranty-section">
+            <h2>5. Maintenance Requirements</h2>
+            <p>To maintain warranty coverage, regular maintenance is required:</p>
+            <ul>
+                <li>Annual professional service check</li>
+                <li>Regular cleaning and lubrication</li>
+                <li>Proper storage in dry conditions</li>
+                <li>Use of recommended cleaning products</li>
+                <li>Following the maintenance schedule in your user manual</li>
+            </ul>
+        </div>
+
+        <div class="warranty-section">
+            <h2>6. Warranty Claim Process</h2>
+            <h3>Step 1: Contact Customer Service</h3>
+            <p>Contact our customer service team with your warranty claim:</p>
+            <ul>
+                <li>Email: support@tobscycle.com</li>
+                <li>Phone: (123) 456-7890</li>
+                <li>Online Form: www.tobscycle.com/warranty-claim</li>
+            </ul>
+
+            <h3>Step 2: Provide Required Information</h3>
+            <ul>
+                <li>Proof of purchase (receipt or invoice)</li>
+                <li>Product serial number</li>
+                <li>Detailed description of the issue</li>
+                <li>Photos of the defect (if applicable)</li>
+                <li>Maintenance records (if requested)</li>
+                <li>Product registration confirmation</li>
+            </ul>
+
+            <h3>Step 3: Assessment and Resolution</h3>
+            <ul>
+                <li>Our team will assess your claim within 5 business days</li>
+                <li>If approved, we will provide repair or replacement options</li>
+                <li>Shipping costs for warranty claims are covered by TobsCycle</li>
+                <li>Repair time typically 7-14 business days</li>
+                <li>Replacement parts will be of equal or better quality</li>
+            </ul>
+        </div>
+
+        <div class="important-note">
+            <h3>Important Notes</h3>
+            <ul>
+                <li>This warranty is valid only for the original purchaser</li>
+                <li>Warranty is non-transferable</li>
+                <li>Regular maintenance is required to maintain warranty coverage</li>
+                <li>Warranty claims must be made within the coverage period</li>
+                <li>Keep all maintenance records and receipts</li>
+                <li>Do not attempt repairs yourself - contact authorized service centers</li>
+                <li>Warranty does not cover shipping damage - contact carrier directly</li>
+            </ul>
+        </div>
+
+        <div class="warranty-section">
+            <h2>7. International Warranty</h2>
+            <p>For international customers:</p>
+            <ul>
+                <li>Warranty coverage varies by country</li>
+                <li>Contact local authorized dealers for service</li>
+                <li>Shipping costs may not be covered for international claims</li>
+                <li>Local laws may affect warranty terms</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Customer Service:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> support@tobscycle.com</p>
+            <p><strong>Address:</strong> 123 Bike Street, Cycling City</p>
+            <p><strong>Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM EST</p>
+            <p><strong>Website:</strong> www.tobscycle.com</p>
+            <p><strong>Service Centers:</strong> Visit our website for authorized service locations</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 TobsCycle. All rights reserved.</p>
+            <p>Document Version: 1.1</p>
+            <p>Last Updated: January 1, 2025</p>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i>
+        Save as PDF
+    </button>
+
+    <script>
+        window.onload = function() {
+            // Check if user is logged in
+            if (localStorage.getItem("isLoggedIn") !== "true") {
+                alert("You need to log in first!");
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+</body>
+</html> 

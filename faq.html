@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle - FAQ</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<style>
+    /* FAQ Section */
+    .faq-section {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .faq-item h2 {
+        font-size: 1.3rem;
+        color: #007bff;
+        cursor: pointer;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-item h2:hover {
+        color: #0056b3;
+    }
+
+    .faq-item p {
+        font-size: 1rem;
+        color: #444;
+        display: none;
+        margin-top: 10px;
+    }
+
+    .faq-item.active p {
+        display: block;
+    }
+
+     /* Align header items in a row */
+  .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between icons and logout button */
+  }
+
+  /* Style for social media icons */
+  .social-icon {
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* Facebook icon color */
+  .social-icon:nth-child(1) {
+      color: #1877F2; /* Facebook Blue */
+  }
+  .social-icon:nth-child(1):hover {
+      color: #8b9dc3;
+  }
+
+  /* Instagram icon color */
+  .social-icon:nth-child(2) {
+      color: #E4405F; /* Instagram Pink */
+  }
+  .social-icon:nth-child(2):hover {
+      color: #F77737;
+  }
+
+  
+</style>
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="a.png" alt="Logo" class="logo-image">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="blog.html">Blog/News</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+        <i class="fa-brands fa-facebook"></i>
+    </a>
+    
+    <!-- Instagram Icon -->
+    <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+        <button id="logout-button" class="logout-button">Log Out</button>
+    </div>
+  </header>
+
+  <main id="faq">
+    <section class="faq-section">
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq-item">
+        <h2>1. What types of bicycles do you sell? <span>➕</span></h2>
+        <p>We offer a variety of bicycles including mountain bikes, road bikes and hybrid bikes.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2>2. Do you offer bicycle repair services? <span>➕</span></h2>
+        <p>Yes, we provide a full range of bicycle repair services, from simple tune-ups to major repairs. Visit our shop for more information.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2>3. Can I order a custom bicycle? <span>➕</span></h2>
+        <p>Absolutely! We offer custom-built bicycles tailored to your specifications. Contact us for more details.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2>4. Do you ship bikes internationally? <span>➕</span></h2>
+        <p>We currently offer shipping within the country. International shipping is available on certain products, please check with us directly for more information.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2>5. What is your return policy? <span>➕</span></h2>
+        <p>We accept returns within 30 days of purchase for unused items. For bikes, returns are only accepted if the bike is unused and in original condition.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Check if user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        alert("You need to log in first!");
+        window.location.href = "login.html";
+    }
+
+    // Logout function
+    document.getElementById("logout-button").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn"); // Remove login status
+        alert("You have been logged out!");
+        window.location.href = "login.html";
+    });
+
+    // FAQ Accordion Effect
+    document.querySelectorAll(".faq-item h2").forEach(question => {
+        question.addEventListener("click", function() {
+            let parent = this.parentElement;
+            let answer = parent.querySelector("p");
+            let icon = this.querySelector("span");
+
+            if (parent.classList.contains("active")) {
+                answer.style.display = "none";
+                parent.classList.remove("active");
+                icon.innerHTML = "➕";
+            } else {
+                document.querySelectorAll(".faq-item").forEach(item => {
+                    item.classList.remove("active");
+                    item.querySelector("p").style.display = "none";
+                    item.querySelector("h2 span").innerHTML = "➕";
+                });
+
+                answer.style.display = "block";
+                parent.classList.add("active");
+                icon.innerHTML = "➖";
+            }
+        });
+    });
+  </script>
+
+</body>
+</html>

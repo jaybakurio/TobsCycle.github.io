@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle</title>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="a.png" alt="Logo" class="logo-image">
+    </div>
+    <nav>
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog/News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>    
+          <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+  </nav>
+    
+    <div class="header-icons">
+        <!-- Facebook Icon -->
+        <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        
+        <!-- Instagram Icon -->
+        <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        
+        <!-- Logout Button -->
+        <button id="logout-button" class="logout-button">Log Out</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <h1>Welcome to TobsCycle</h1>
+      <p>Your one-stop shop for all biking needs!</p>
+    </section>
+
+    <!-- Video Advertisement Section -->
+    <section class="video-ad">
+      <h2>Watch Our Latest Advertisement</h2>
+      <video controls width="600" class="ad-video">
+        <source src="advertisement.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+      <!-- Newsletter Signup Section -->
+      <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with the latest cycling news, events, and exclusive deals!</p>
+        <a href="blog.html" class="newsletter-button">Sign Up Now</a>
+      </section>
+  </main>
+
+  <div class="content-wrapper">
+    <!-- Facebook Messenger Section -->
+    <div class="container a">
+        <h2>Chat with Us on our Facebook Page</h2>
+        <p>Click the button below to start a conversation.</p>
+        <br>
+
+        <!-- Messenger Link -->
+        <a href="https://web.facebook.com/profile.php?id=61573754234238" class="messenger-btn" target="_blank">
+            Message Us on our Facebook Page
+        </a>
+
+        <!-- Embedded Messenger Chat -->
+        <div id="fb-root"></div>
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+    </div>
+
+    <!-- Blog Section -->
+    <div class="container blog-container">
+        <h2>📢 Check Out Our Latest Blog!</h2>
+        <p>Read about our latest updates, tips, and news on cycling.</p>
+        <a href="https://tobscycle.blogspot.com/2025/03/tobscycle-march-11-2025-welcome-to.html" class="blog-link" target="_blank">
+            Visit Our Blog
+        </a>
+    </div>
+</div>
+
+
+<!-- Facebook Messenger SDK -->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v18.0' // Use the latest version
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Set Messenger Chat Plugin
+    document.getElementById('fb-customer-chat').setAttribute("page_id", "YOUR_PAGE_ID");
+    document.getElementById('fb-customer-chat').setAttribute("attribution", "biz_inbox");
+</script>
+
+</body>
+</html>
+
+<script>
+  // Check if user is logged in
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+      alert("You need to log in first!");
+      window.location.href = "login.html";
+  }
+
+  // Logout function
+  document.getElementById("logout-button").addEventListener("click", function() {
+      localStorage.removeItem("isLoggedIn"); // Remove login status
+      alert("You have been logged out!");
+      window.location.href = "login.html";
+  });
+</script>
+
+<style>
+  /* Align header items in a row */
+  .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between icons and logout button */
+  }
+
+  /* Style for social media icons */
+  .social-icon {
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* Facebook icon color */
+  .social-icon:nth-child(1) {
+      color: #1877F2; /* Facebook Blue */
+  }
+  .social-icon:nth-child(1):hover {
+      color: #8b9dc3;
+  }
+
+  /* Instagram icon color */
+  .social-icon:nth-child(2) {
+      color: #E4405F; /* Instagram Pink */
+  }
+  .social-icon:nth-child(2):hover {
+      color: #F77737;
+  }
+
+  /* Logout button styling */
+  .logout-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
+  .logout-button:hover {
+      background-color: darkred;
+  }
+
+  /* Wrapper to align sections horizontally */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between sections */
+    flex-wrap: wrap; /* Wrap to next row on smaller screens */
+}
+
+/* Styling for container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%; /* Consistent width */
+    text-align: center;
+}
+
+/* Facebook Messenger button styling */
+.messenger-btn {
+    display: inline-block;
+    background: #1877F2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.messenger-btn:hover {
+    background: #1877F2;
+}
+
+/* Blog section styling */
+.blog-container h2 {
+    color: #0077b6;
+}
+
+.blog-link {
+    display: inline-block;
+    background: #1877F2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.blog-link:hover {
+    background: #005f99;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+}
+
+</style>

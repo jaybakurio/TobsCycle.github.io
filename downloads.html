@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TobsCycle - Downloads</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="blog.html">Blog/News</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="downloads-section">
+            <h1>Downloads</h1>
+            <p>Access important documents and information for your TobsCycle products</p>
+
+            <div class="downloads-grid">
+                <!-- Warranty Information -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h2>Warranty Information</h2>
+                    <p>Download our comprehensive warranty policy and terms</p>
+                    <a href="warranty.pdf" download class="download-link">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- User Manual -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h2>User Manual</h2>
+                    <p>Complete user manual for all TobsCycle products</p>
+                    <a href="user-manual.pdf" download class="download-link">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Maintenance Guide -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2>Maintenance Guide</h2>
+                    <p>Detailed maintenance instructions for your bike</p>
+                    <a href="maintenance-guide.pdf" download class="download-link">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Safety Guidelines -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2>Safety Guidelines</h2>
+                    <p>Important safety information and guidelines</p>
+                    <a href="safety-guidelines.pdf" download class="download-link">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TobsCycle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            alert("You need to log in first!");
+            window.location.href = "login.html";
+        }
+      
+        // Logout function
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn");
+            alert("You have been logged out!");
+            window.location.href = "login.html";
+        });
+    </script>
+
+    <style>
+        .downloads-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .downloads-section h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        .downloads-section > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-icon {
+            font-size: 2.5em;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        .download-card h2 {
+            color: #0077b6;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .download-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .download-link:hover {
+            background-color: #005b8c;
+        }
+
+        .download-link i {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

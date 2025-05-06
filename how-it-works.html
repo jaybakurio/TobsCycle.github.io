@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - TobsCycle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="blog.html">Blog/News</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="tutorials.html">Tutorials</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+      </nav>
+        
+        <div class="header-icons">
+            <!-- Facebook Icon -->
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <!-- Logout Button -->
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+      </header>
+
+      <section class="page-content">
+        <h2 class="section-title">How It Works</h2>
+    
+        <div class="product-category">
+            <h3>Step 1: Browse Our Products</h3>
+            <p>Explore our wide range of bikes and accessories.</p>
+        </div>
+    
+        <div class="product-category">
+            <h3>Step 2: Add to Cart</h3>
+            <p>Select your favorite products and add them to the cart.</p>
+        </div>
+    
+        <div class="product-category">
+            <h3>Step 3: Secure Checkout</h3>
+            <p>Complete your order using our secure payment system.</p>
+        </div>
+    
+        <div class="product-category">
+            <h3>Step 4: Enjoy Your Ride!</h3>
+            <p>Your order will be delivered to your doorstep within 3–5 business days.</p>
+        </div>
+    </section>
+    
+</body>
+</html>
+
+<script>
+    // Check if user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        alert("You need to log in first!");
+        window.location.href = "login.html";
+    }
+  
+    // Logout function
+    document.getElementById("logout-button").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn"); // Remove login status
+        alert("You have been logged out!");
+        window.location.href = "login.html";
+    });
+  </script>

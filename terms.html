@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - TobsCycle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="blog.html">Blog/News</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="tutorials.html">Tutorials</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+      </nav>
+        
+        <div class="header-icons">
+            <!-- Facebook Icon -->
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <!-- Logout Button -->
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+      </header>
+
+    <section class="page-content">
+        <h2>Introduction</h2>
+        <p>By accessing this website, you agree to be bound by the terms and conditions set forth below...</p>
+
+        <h2>Use of Service</h2>
+        <p>You agree to use the website for personal and non-commercial purposes only...</p>
+
+        <section class="terms-section">
+            <h2>Warranty Information</h2>
+            <p>Our warranty policy ensures your peace of mind with every TobsCycle purchase.</p>
+            
+            <div class="warranty-details">
+                <h3>Coverage Period</h3>
+                <ul>
+                    <li>Frame: Lifetime warranty</li>
+                    <li>Components: 2 years warranty</li>
+                    <li>Electronics: 1 year warranty</li>
+                </ul>
+
+                <h3>What's Covered</h3>
+                <ul>
+                    <li>Manufacturing defects</li>
+                    <li>Material defects</li>
+                    <li>Workmanship issues</li>
+                </ul>
+
+                <h3>What's Not Covered</h3>
+                <ul>
+                    <li>Normal wear and tear</li>
+                    <li>Accidents or misuse</li>
+                    <li>Unauthorized modifications</li>
+                    <li>Regular maintenance items</li>
+                </ul>
+
+                <div class="warranty-download">
+                    <a href="warranty.html" class="download-button" target="_blank">
+                        <i class="fas fa-file-pdf"></i> View Full Warranty Terms
+                    </a>
+                    <p class="download-note">Click the "Save as PDF" button on the warranty page to download a copy.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+</html>
+
+<script>
+    // Check if user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        alert("You need to log in first!");
+        window.location.href = "login.html";
+    }
+  
+    // Logout function
+    document.getElementById("logout-button").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn"); // Remove login status
+        alert("You have been logged out!");
+        window.location.href = "login.html";
+    });
+  </script>
+
+<style>
+    .warranty-details {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .warranty-details h3 {
+        color: #0077b6;
+        margin: 20px 0 10px 0;
+    }
+
+    .warranty-details ul {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    .warranty-details li {
+        margin: 8px 0;
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .warranty-details li:before {
+        content: "•";
+        color: #0077b6;
+        position: absolute;
+        left: 0;
+    }
+
+    .warranty-download {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .download-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #0077b6;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+        background-color: #005b8c;
+    }
+
+    .download-button i {
+        margin-right: 8px;
+    }
+
+    .download-note {
+        margin-top: 10px;
+        color: #666;
+        font-size: 0.9em;
+        text-align: center;
+    }
+</style>

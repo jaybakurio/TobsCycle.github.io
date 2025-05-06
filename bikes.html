@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle - Bikes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background: #0376b4;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  background: rgb(123, 161, 200);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo a:hover {
+  background: #cc5500;
+  transform: scale(1.1);
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: rgb(123, 161, 200);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #222;
+}
+
+.bike-category {
+  margin-bottom: 40px;
+}
+
+h3 {
+  border-bottom: 3px solid #000000;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-item {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-item h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-item p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #cc5500;
+}
+
+.product-navigation {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.product-navigation a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.product-navigation a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+</style>
+<body>
+
+  <header>
+    <div class="logo"><a href="index.html">TobsCycle</a></div>
+  </header>
+
+  <main>
+    <h2>Our Bikes Collection</h2>
+
+    <!-- Mountain Bikes Section -->
+    <section class="bike-category">
+      <h3>Mountain Bikes</h3>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="bike1.png" alt="Santa Cruz Mountain Bike">
+          <h4>Santa Cruz</h4>
+          <p>₱250,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike2.png" alt="Trek Mountain Bike">
+          <h4>Kross</h4>
+          <p>₱20,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike3.png" alt="Giant Mountain Bike">
+          <h4>Evil</h4>
+          <p>₱99,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Road Bikes Section -->
+    <section class="bike-category">
+      <h3>Road Bikes</h3>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="bike4.png" alt="Canyon Road Bike">
+          <h4>Trek</h4>
+          <p>₱180,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike5.png" alt="Bianchi Road Bike">
+          <h4>Orbea</h4>
+          <p>₱350,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike6.png" alt="Specialized Road Bike">
+          <h4>Felt</h4>
+          <p>₱280,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hybrid Bikes Section -->
+    <section class="bike-category">
+      <h3>Hybrid Bikes</h3>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="bike7.png" alt="Cannondale Hybrid Bike">
+          <h4>Turner</h4>
+          <p>₱85,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike8.png" alt="Merida Hybrid Bike">
+          <h4>Focus</h4>
+          <p>₱65,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="bike9.png" alt="Scott Hybrid Bike">
+          <h4>Giant</h4>
+          <p>₱78,000.00</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Links -->
+    <nav class="product-navigation">
+      <a href="bike-parts.html">View Bike Parts</a> | 
+      <a href="accessories.html">View Accessories</a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TobsCycle. All rights reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    // Add click handlers to all Add to Cart buttons
+    document.querySelectorAll('.product-item button').forEach(button => {
+      button.addEventListener('click', function() {
+        const productItem = this.closest('.product-item');
+        const productName = productItem.querySelector('h4').textContent;
+        const priceText = productItem.querySelector('p').textContent;
+        const price = parseFloat(priceText.replace('₱', '').replace(',', ''));
+        const image = productItem.querySelector('img').src;
+        
+        addToCart(productName, price, image);
+      });
+    });
+  </script>
+</body>
+</html>

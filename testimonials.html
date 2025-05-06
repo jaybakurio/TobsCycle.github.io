@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TobsCycle - Testimonials</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .testimonial-content {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      color: #0077b6;
+    }
+
+    .testimonial-date {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .remove-testimonial {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .remove-testimonial:hover {
+      background: #cc0000;
+    }
+
+    .testimonial-form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      background: #0077b6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background: #005b8c;
+    }
+
+    .admin-controls {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .admin-controls.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="a.png" alt="Logo" class="logo-image">
+    </div>
+    <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog/News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+    
+    <div class="header-icons">
+        <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="logout-button" class="logout-button">Log Out</button>
+    </div>
+  </header>
+
+  <main id="testimonials">
+    <section class="hero">
+      <h1>What Our Customers Say</h1>
+      <p>Read what our happy customers have to say about TobsCycle!</p>
+    </section>
+
+    <div class="testimonials-container">
+      <h1>Customer Testimonials</h1>
+      
+      <div id="testimonials-list">
+        <!-- Testimonials will be loaded here -->
+      </div>
+
+      <section class="testimonial-form">
+        <h2>Share Your Experience</h2>
+        <form id="testimonial-form">
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="testimonial">Your Testimonial:</label>
+            <textarea id="testimonial" name="testimonial" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit Testimonial</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        alert("You need to log in first!");
+        window.location.href = "login.html";
+    }
+
+    document.getElementById("logout-button").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn");
+        alert("You have been logged out!");
+        window.location.href = "login.html";
+    });
+
+    // Load testimonials from localStorage
+    function loadTestimonials() {
+      const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+      const testimonialsList = document.getElementById('testimonials-list');
+      testimonialsList.innerHTML = '';
+
+      testimonials.forEach((testimonial, index) => {
+        const testimonialCard = document.createElement('div');
+        testimonialCard.className = 'testimonial-card';
+        
+        const date = new Date(testimonial.date).toLocaleDateString();
+        
+        testimonialCard.innerHTML = `
+          <div class="testimonial-content">${testimonial.content}</div>
+          <div class="testimonial-author">${testimonial.name}</div>
+          <div class="testimonial-date">${date}</div>
+          <button class="remove-testimonial" onclick="removeTestimonial(${index})">
+            <i class="fas fa-trash"></i> Remove
+          </button>
+        `;
+        
+        testimonialsList.appendChild(testimonialCard);
+      });
+
+      // Show remove buttons only for admin
+      const removeButtons = document.querySelectorAll('.remove-testimonial');
+      removeButtons.forEach(button => {
+        button.style.display = 'none'; // Hide by default
+      });
+    }
+
+    // Add new testimonial
+    document.getElementById('testimonial-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const content = document.getElementById('testimonial').value;
+      
+      const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+      testimonials.push({
+        name: name,
+        content: content,
+        date: new Date().toISOString()
+      });
+      
+      localStorage.setItem('testimonials', JSON.stringify(testimonials));
+      
+      // Clear form
+      document.getElementById('name').value = '';
+      document.getElementById('testimonial').value = '';
+      
+      // Reload testimonials
+      loadTestimonials();
+      
+      alert('Thank you for sharing your experience!');
+    });
+
+    // Remove testimonial
+    function removeTestimonial(index) {
+      if (confirm('Are you sure you want to remove this testimonial?')) {
+        const testimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
+        testimonials.splice(index, 1);
+        localStorage.setItem('testimonials', JSON.stringify(testimonials));
+        loadTestimonials();
+      }
+    }
+
+    // Check if user is admin and show remove buttons
+    function checkAdminStatus() {
+      const isAdmin = localStorage.getItem('isAdmin') === 'true';
+      const removeButtons = document.querySelectorAll('.remove-testimonial');
+      removeButtons.forEach(button => {
+        button.style.display = isAdmin ? 'block' : 'none';
+      });
+    }
+
+    // Load testimonials and check admin status on page load
+    window.onload = function() {
+      loadTestimonials();
+      checkAdminStatus();
+    };
+  </script>
+</body>
+</html>
+
+<style>
+  .testimonials {
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+  }
+
+  .testimonial-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+  }
+
+  .testimonial {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      text-align: center;
+  }
+
+  .testimonial h4 {
+      margin-top: 10px;
+      font-weight: bold;
+  }
+
+  /* Add Testimonial Form Styles */
+  .add-testimonial {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .add-testimonial h2 {
+      color: #0077b6;
+      margin-bottom: 20px;
+  }
+
+  .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+  }
+
+  .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+  }
+
+  .form-group input,
+  .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+  }
+
+  .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+  }
+
+  .submit-testimonial {
+      background-color: #0077b6;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+
+  .submit-testimonial:hover {
+      background-color: #005b8c;
+  }
+
+  /* Align header items in a row */
+  .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+
+  /* Style for social media icons */
+  .social-icon {
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* Facebook icon color */
+  .social-icon:nth-child(1) {
+      color: #1877F2; /* Facebook Blue */
+  }
+  .social-icon:nth-child(1):hover {
+      color: #8b9dc3;
+  }
+
+  /* Instagram icon color */
+  .social-icon:nth-child(2) {
+      color: #E4405F; /* Instagram Pink */
+  }
+  .social-icon:nth-child(2):hover {
+      color: #F77737;
+  }
+</style>

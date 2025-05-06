@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TobsCycle - Tutorials</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="a.png" alt="Logo" class="logo-image">
+        </div>
+        <nav>
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="blog.html">Blog/News</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="tutorials.html">Tutorials</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+      </nav>
+        
+        <div class="header-icons">
+            <!-- Facebook Icon -->
+            <a href="https://web.facebook.com/profile.php?id=61573754234238" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/jaybakurio/" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <!-- Logout Button -->
+            <button id="logout-button" class="logout-button">Log Out</button>
+        </div>
+      </header>
+
+    <main>
+        <section class="tutorials-section">
+            <h1>Bike Tutorials</h1>
+            <p>Learn everything about bikes with our comprehensive video tutorials</p>
+
+            <div class="tutorial-grid">
+                <!-- Basic Bike Maintenance -->
+                <div class="tutorial-card">
+                    <h2>Basic Bike Maintenance</h2>
+                    <div class="video-link">
+                        <a href="https://www.youtube.com/watch?v=VKBNDzCLzK8&t=2s" target="_blank" class="youtube-link">
+                            <i class="fab fa-youtube"></i> Watch Basic Bike Maintenance Tutorial
+                        </a>
+                    </div>
+                    <p>Learn the essential maintenance tasks to keep your bike running smoothly.</p>
+                </div>
+
+                <!-- How to Fix a Flat Tire -->
+                <div class="tutorial-card">
+                    <h2>How to Fix a Flat Tire</h2>
+                    <div class="video-link">
+                        <a href="https://www.youtube.com/watch?v=58STtUM-Wow" target="_blank" class="youtube-link">
+                            <i class="fab fa-youtube"></i> Watch Flat Tire Fix Tutorial
+                        </a>
+                    </div>
+                    <p>Step-by-step guide to fixing a flat tire on your bike.</p>
+                </div>
+
+                <!-- Bike Assembly Guide -->
+                <div class="tutorial-card">
+                    <h2>Bike Assembly Guide</h2>
+                    <div class="video-link">
+                        <a href="https://www.youtube.com/watch?v=VO4jzyODZ10" target="_blank" class="youtube-link">
+                            <i class="fab fa-youtube"></i> Watch Bike Assembly Tutorial
+                        </a>
+                    </div>
+                    <p>Complete guide to assembling your new bike.</p>
+                </div>
+
+                <!-- Bike Cleaning Tips -->
+                <div class="tutorial-card">
+                    <h2>Bike Cleaning Tips</h2>
+                    <div class="video-link">
+                        <a href="https://www.youtube.com/watch?v=pv9KMTaEgS8" target="_blank" class="youtube-link">
+                            <i class="fab fa-youtube"></i> Watch Bike Cleaning Tutorial
+                        </a>
+                    </div>
+                    <p>Learn how to properly clean and maintain your bike's appearance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TobsCycle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            alert("You need to log in first!");
+            window.location.href = "login.html";
+        }
+      
+        // Logout function
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn"); // Remove login status
+            alert("You have been logged out!");
+            window.location.href = "login.html";
+        });
+    </script>
+
+    <style>
+        .tutorials-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tutorials-section h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        .tutorials-section > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .tutorial-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tutorial-card h2 {
+            color: #0077b6;
+            padding: 20px;
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .video-link {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .youtube-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .youtube-link:hover {
+            background-color: #cc0000;
+        }
+
+        .youtube-link i {
+            margin-right: 8px;
+        }
+
+        .tutorial-card p {
+            padding: 20px;
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .tutorial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
