@@ -40,6 +40,58 @@
   
 </style>
 <body>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/681610edc915a4190c8c152f/1iqb3486k';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v18.0' // Use the latest version
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Set Messenger Chat Plugin
+    document.getElementById('fb-customer-chat').setAttribute("page_id", "YOUR_PAGE_ID");
+    document.getElementById('fb-customer-chat').setAttribute("attribution", "biz_inbox");
+</script>
+
+
+
+<script>
+  // Check if user is logged in
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+      alert("You need to log in first!");
+      window.location.href = "login.html";
+  }
+
+  // Logout function
+  document.getElementById("logout-button").addEventListener("click", function() {
+      localStorage.removeItem("isLoggedIn"); // Remove login status
+      alert("You have been logged out!");
+      window.location.href = "login.html";
+  });
+</script>
     <header>
       <div class="logo-container">
         <img src="a.png" alt="Logo" class="logo-image">
@@ -57,7 +109,6 @@
             <li><a href="tutorials.html">Tutorials</a></li>
             <li><a href="downloads.html">Downloads</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
           </ul>
         </nav>
         <div class="header-icons">
